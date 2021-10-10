@@ -1,0 +1,138 @@
+body {
+    /* Шрифты; следующий подключается, если не доступен предыдущий */
+    font-family: 'SF UI Display', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.container {
+    padding-top: 0 auto;
+    padding: 10px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 64px 10px 80px;
+}
+
+.header_logo_name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+}
+
+.header_icon {
+    width: 41px;
+    height: 41px;
+    background: url(../src/Тензор_лого-03\ 1.png) 100% 100% no-repeat;
+    background-size: cover;
+    margin-right: 8px;
+}
+
+.students_list {
+    display: grid;
+}
+
+.student {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px 0px 16px 16px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+}
+
+.student_image {
+    width: 100%;
+    height: 100%;
+    /* Картинка будет вмещаться (не будет вылезать) */
+    object-fit: cover;
+    /* margin-bottom: 16px; */
+}
+
+.avatar_info_press {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+}
+
+.press_area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+
+.student_description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 10px 0 12px;
+}
+
+.student_info {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    /* display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden; */
+}
+
+.student_name {
+    margin: 0 0 16px 0;
+    /* margin-bottom: 16px; */
+}
+
+.button_delete {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: wheat;
+    background-image: url(../src/delete_icon.svg);
+    background-position: center center;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+}
+
+/* Стили только для устройств с шириной экрана больше 768px */
+@media screen and (min-width: 768px) {
+    .button_delete {
+        display: none;
+    }
+
+    .student:hover .button_delete {
+        display: block;
+    }
+
+    .container {
+        padding: 30px;
+    }
+
+    .students_list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .container {
+        max-width: 1200px;
+        padding: 0 30px;
+    }
+
+    .students_list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+}

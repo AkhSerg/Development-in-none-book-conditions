@@ -1,0 +1,60 @@
+<!-- Указание стандарта документа -->
+<!DOCTYPE html>
+<!-- Сам документ -->
+<html>
+    <!-- Данные документа -->
+    <head>
+        <!-- Указание кодировки -->
+        <meta charset="UTF-8" />
+        <!-- Указание слов, которые будут ключевыми для поиска в интернете -->
+        <meta name="keywords" content="студенты" />
+        <!-- Указание автора контента -->
+        <meta name="author" content="Sergey Akhaimov" />
+        <!-- Указание названия вкладки -->
+        <title>Students</title>
+        <!-- Указание параметров для отображения на мобильном устройстве (адаптация) -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Указание файла со стилями -->
+        <link rel="stylesheet" href="./styles/styles.css" />
+    </head>
+    <!-- Тело документа -->
+    <body>
+        <!-- Оболочка для контента внутри тела-->
+        <div class="container">
+            <header class="header">
+                <section class="header_logo_name">
+                    <!-- Ссылка по нажатию на картинку -->
+                    <a href="https://tensor.ru/" class="header_icon" target="_blank"></a>
+                    <h1 class="header_title">
+                        TENSOR SCHOOL
+                    </h1>
+                </section>
+            </header>
+            <!-- Секция для списка студентов -->
+            <section class="students_list">
+                <!-- Студент 1 -->
+                <article class="student">
+                    <section class="avatar_info_press">
+                        <img src="src/avatar_1.svg" alt="" class="student_image">
+                        <section class="press_area">
+                            <a href="#" class="button_delete"></a>
+                        </section>
+                        <section class="student_description">
+                            <h3 class="student_name">
+                                Мария Иванова
+                            </h3>
+                            <section class="student_info">
+                                <p class="student_study">
+                                    УГАТУ 2 курс
+                                </p>
+                                <p class="student_city">
+                                    г.Уфа
+                                </p>
+                            </section>
+                        </section>    
+                    </section>
+                </article>
+            </section>
+        </div>
+    </body>
+</html>
