@@ -4,23 +4,11 @@ body {
     margin: 0;
 }
 
-.container {
-    padding-top: 0 auto;
-    padding: 10px;
-}
-
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 64px 10px 80px;
-}
-
-.header_logo_name {
+header {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding: 0px;
+    justify-content: flex-start;
+    padding: 64px 0px 80px;
 }
 
 .header_icon {
@@ -31,36 +19,94 @@ body {
     margin-right: 8px;
 }
 
-.students_list {
+.header_title {
+    height: 41px;
+    margin: 0px;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 0px 64px 0px 64px;
+}
+
+.students_container {
+    border-color: black;
+    border-style: double;
     display: grid;
 }
 
 .student {
     position: relative;
+    border-color: black;
+    border-style: dotted;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 16px 0px 16px 16px;
+    padding: 16px 42px 16px 16px;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.25);
-    margin-bottom: 20px;
-}
-
-.student_image {
-    width: 100%;
-    height: 100%;
-    /* Картинка будет вмещаться (не будет вылезать) */
-    object-fit: cover;
-    /* margin-bottom: 16px; */
+    margin: 0px 0px 20px 0px;
 }
 
 .avatar_info_press {
+    width: 100%;
+    border-color: aquamarine;
+    border-style: dashed;
     display: flex;
     flex-direction: row;
+    /* justify-content: center; */
     align-items: center;
     padding: 0px;
 }
 
+.student_image {
+    border-color: antiquewhite;
+    border-style: dashed;
+    width: 100px;
+    height: 70%;
+    /* Картинка будет вмещаться (не будет вылезать) */
+    object-fit: cover;
+    flex-shrink: 0;
+    /* margin-bottom: 16px; */
+}
+
+.student_description {
+    border-color: blue;
+    border-style: dashed;
+    margin: 0;
+
+    flex-grow: 1;
+    /* padding: 0 10px 0 12px;  */
+}
+
+.student_name {
+    border-color: red;
+    border-style: dashed;
+    color: #333333;
+    font-size: 24px;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.student_study {
+    border-color: red;
+    border-style: dashed;
+    color: #7A91B5;
+    font-size: 14px;
+}
+
+.city {
+    padding-left: 20px;
+}
+
 .press_area {
+    position: absolute;
+    right: 0px;
+    border-color: black;
+    border-style: dashed;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,14 +114,32 @@ body {
     padding: 0px;
 }
 
-.student_description {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 10px 0 12px;
+.button_delete {
+    width: 40px;
+    height: 40px;
+    color: #436497;
+    background-image: url(../src/delete_icon.svg);
+    background-position: center center;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
 }
 
-.student_info {
+
+/* .info {
+    color: #7A91B5;
+    font-size: 24px;
+    font-style: ;
+}
+
+.info::first-line {
+    color: #333333;
+} */
+
+/* .info::second-line {
+    color: #7A91B5;
+} */
+
+/* .student_info {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -84,28 +148,17 @@ body {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden; */
-}
+/* } */
 
-.student_name {
-    margin: 0 0 16px 0;
+/* .student_name { */
+    /* margin: 0 0 16px 0; */
     /* margin-bottom: 16px; */
-}
+/* } */
 
-.button_delete {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    width: 40px;
-    height: 40px;
-    background-color: wheat;
-    background-image: url(../src/delete_icon.svg);
-    background-position: center center;
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
-}
+
 
 /* Стили только для устройств с шириной экрана больше 768px */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 0px) {
     .button_delete {
         display: none;
     }
@@ -115,24 +168,46 @@ body {
     }
 
     .container {
-        padding: 30px;
+        max-width: 370px;
+        padding: 0px;
     }
 
-    .students_list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+    .students_container {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
     }
 }
 
-@media screen and (min-width: 1080px) {
-    .container {
-        max-width: 1200px;
-        padding: 0 30px;
+@media screen and (min-width: 469px) {
+    .button_delete {
+        display: none;
     }
 
-    .students_list {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
+    .student:hover .button_delete {
+        display: block;
+    }
+
+    .container {
+        max-width: 469px;
+        padding: 0 64px;
+    }
+
+    .students_container {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .container {
+        max-width: 800px;
+        padding: 0 64px;
+        align-self: center;
+    }
+
+    .students_container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
 }

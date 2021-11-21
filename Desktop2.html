@@ -22,39 +22,48 @@
         <!-- Оболочка для контента внутри тела-->
         <div class="container">
             <header class="header">
-                <section class="header_logo_name">
                     <!-- Ссылка по нажатию на картинку -->
                     <a href="https://tensor.ru/" class="header_icon" target="_blank"></a>
                     <h1 class="header_title">
                         TENSOR SCHOOL
                     </h1>
-                </section>
             </header>
-            <!-- Секция для списка студентов -->
-            <section class="students_list">
+            <!-- контейнер для списка студентов -->
+            <div class="students_container">
                 <!-- Студент 1 -->
                 <article class="student">
-                    <section class="avatar_info_press">
+                    <div class="avatar_info_press">
                         <img src="src/avatar_1.svg" alt="" class="student_image">
-                        <section class="press_area">
-                            <a href="#" class="button_delete"></a>
-                        </section>
-                        <section class="student_description">
-                            <h3 class="student_name">
+                        <div class="student_description">
+                            <p class="student_name">
                                 Мария Иванова
-                            </h3>
-                            <section class="student_info">
-                                <p class="student_study">
-                                    УГАТУ 2 курс
-                                </p>
-                                <p class="student_city">
-                                    г.Уфа
-                                </p>
-                            </section>
-                        </section>    
-                    </section>
+                            </p>
+                            <p class="student_study">
+                                УГАТУ 2 курс <span class="city">г.Уфа</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="press_area">
+                        <a href="#" class="button_delete"></a>
+                    </div> 
                 </article>
-            </section>
+                <article class="student">
+                    <div class="avatar_info_press">
+                        <img src="src/avatar_1.svg" alt="" class="student_image">
+                        <div class="student_description">
+                            <p class="student_name">
+                                Мария Иванова
+                            </p>
+                            <p class="student_study">
+                                УГАТУ 2 курс <span class="city">г.Уфа</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="press_area">
+                        <a href="#" class="button_delete"></a>
+                    </div> 
+                </article>
+            </div>
         </div>
     </body>
 </html>
