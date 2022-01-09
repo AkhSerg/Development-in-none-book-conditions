@@ -1,0 +1,546 @@
+body {
+    /* Шрифты; следующий подключается, если не доступен предыдущий */
+    font-family: 'SF UI Display', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: first baseline;
+    align-items: center;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header_icon {
+    display: block;
+    margin-right: 8px;
+    margin-left: 8px;
+    text-decoration: none;
+}
+
+
+.header_title {
+    margin: 0;
+}
+
+.header_title::before {
+    content: "TENSOR SCHOOL";
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.students_container {
+    display: grid;
+}
+
+.student {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border-color: gold;
+    border-style: dashed; */
+}
+
+.student:hover {
+    background-color: #EEF8FE;
+}
+
+.avatar_description {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+    /* border-color: blue;
+    border-style: dashed; */
+}
+
+.avatar {
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.student_description {
+    display: grid;
+    grid-template-rows: repeat(2, 0.4fr); 
+    padding: 0 0 0 12px;
+    /* flex-shrink: 0; */
+}
+
+.student_name {
+    /* border-color: red;
+    border-style: dashed; */
+    color: #333333;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    padding-bottom: 4px;
+}
+
+.study_info {
+    /* border-color: red;
+    border-style: dashed; */
+    margin: 0;
+    padding: 0;
+    color: #7A91B5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.city {
+    padding-left: 20px;
+}
+
+.press_area {
+    /* border-color: red;
+    border-style: dashed; */
+    width: 70px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button_delete {
+    /* border-color: black;
+    border-style: dashed; */
+    width: 66px;
+    height: 35%;
+    color: #fff;
+    background-image: url(../src/delete_icon.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.button_edit {
+    /* border-color: black;
+    border-style: dashed; */
+    width: 66px;
+    height: 35%;
+    background-image: url(../src/edit.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+
+.button_close {
+    position: absolute;
+    top: -12px;
+    left: 100%;
+    /* right: 31vw; */
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.button_close:hover {
+    color: #06d85f;
+}
+
+/* обработка карточки */
+.card_container {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+}
+
+.card {
+    position: fixed;
+    top: 15vw;
+    left: 35vw;
+    width: 30%;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* grid-template-rows: repeat(0, 1fr); */
+    /* flex-direction: row; */
+    /* justify-content: space-between; */
+    margin: 0;
+    padding: 8px;
+    background: white;
+}
+
+.card_info {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    /* flex-direction: column;
+    justify-content: space-between; */
+    color: #7A91B5;
+}
+
+.last_name {
+    text-transform: uppercase;
+}
+
+.card_info .student_name {
+    display: grid;
+    /* grid-template-rows: repeat(1, 1fr); */
+    color: #333;
+    padding-bottom: 13px;
+}
+
+.city_info {
+    display: inline-flex;
+}
+
+.card_info .city {
+    display: initial;
+    padding: 0;
+    margin: 0;
+}
+
+.city_img {
+    padding-right: 8px;
+}
+
+.study_info {
+    display: inline-flex;
+}
+
+.card_info .study {
+    margin: 0;
+}
+
+.study_img {
+    padding-right: 8px;
+}
+
+.phone_number_info {
+    display: inline-flex;
+}
+
+.card_info .phone_number {
+    margin: 0;
+}
+
+.fa-phone {
+    display: block;
+    padding-right: 8px;
+    text-decoration: none;
+    background: url(../src/phone_number.svg);
+    /* color:rgb(0, 0, 0); */
+    /* background-color: #fff; */
+}
+
+.email_info {
+    display: inline-flex;
+}
+
+.card_info .email {
+    margin: 0;
+}
+
+.email_img {
+    padding-right: 8px;
+}
+
+/* .card_img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
+
+.card_img {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 6;
+    width: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.social_media {
+    grid-column-start: 2;
+    grid-row-start: 6;
+    display: flex;
+    justify-content: space-around;
+}
+
+.avatar {
+    border-radius: 8px;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 300ms;
+    visibility: hidden;
+    opacity: 0;
+ }
+ 
+ .overlay.opened {
+    visibility: visible;
+    opacity: 1;
+ }
+ 
+ .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 600px;
+    max-width: 100vw;
+    position: relative;
+    transition: all 5s ease-in-out;
+ }
+ 
+ .popup h2 {
+    margin-top: 0;
+    color: #333;
+    /* font-family: Tahoma, Arial, sans-serif; */
+ }
+ 
+ .popup__close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+ }
+ 
+ .popup__close:hover {
+    color: #06d85f;
+ }
+
+ .my-form__submit {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 5px;
+ }
+
+
+
+/* Стили только для устройств с шириной экрана больше 768px */
+@media screen and (min-width: 0px) {
+
+    header {
+        padding: 1.25em 0;
+        background-color: #1F4A6B;
+        color: #ffffff;
+        size: 0.25em;
+        margin-bottom: 20px;
+    }
+
+    .header_icon {
+        width: 12px;
+        height: 12px;
+        background: url(../src/plus.svg) 100% 100% no-repeat;
+        background-size: cover;
+    }
+
+    .header_title {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .container {
+        width: 100vw;
+        object-fit: cover;
+        padding: 0;
+    }
+
+    .students_container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .student {
+        margin: 0;
+        padding: 8px 0px 8px 16px;    
+    }
+
+    .city {
+        display: none;
+    }
+
+    .avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* обработка карточки */
+
+    .card {
+        top: 75vw;
+        left: 5vw;
+        width: 85%;
+    }
+
+    .button_close {
+        top: -50px;
+        left: 48%;
+    }
+
+    .card_info {
+        font-size: 14px;
+    }
+
+    .last_name,
+    .fs_name {
+        font-size: 16px;
+    }
+
+    .card_img {
+        width: 100px;
+    }
+
+    .card_img .avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* обработка всплывающей формы */
+    .popup {
+        width: 300px;
+    }
+
+    .popup__close {
+        right: 10px;
+    }
+}
+
+@media screen and (min-width: 481px) {
+
+}
+
+@media screen and (min-width: 769px) {
+
+}
+
+@media screen and (min-width: 1280px) {
+
+    header {
+        margin-bottom: 0;
+        padding: 64px 0px 64px;
+        background-color: #fff;
+        color: #333;
+    }
+
+    .header:hover .header_title::before {
+        content: "Добавить студента";
+        display: inline-block;
+        color: #436497;
+    }
+
+    .header_title {
+        font-size: 24px;
+    }
+
+    .header_icon {
+        width: 41px;
+        height: 41px;
+        background: url(../src/Тензор_лого-03\ 1.png) 100% 100% no-repeat;
+        background-size: cover;
+        margin-right: 8px;
+    }
+
+    .header:hover .header_icon {
+        background: url(../src/plus_active.svg) 100% 100% no-repeat;
+    }
+
+    .container {
+        width: 800px;
+        object-fit: cover;
+        padding: 0;
+    }
+
+    .students_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .student {
+        padding: 16px 0px 16px 16px;
+    }
+
+    .student:hover .button_delete {
+        display: block;
+    }
+
+    .student:hover .button_edit {
+        display: block;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .student_name {
+        font-size: 24px;
+    }
+
+    .study, 
+    .city {
+        font-size: 14px;
+    }
+
+    .city {
+        display: initial;
+    }
+
+    .button_delete {
+        display: none;
+    }
+
+    .button_edit {
+        display: none;
+    }
+
+    /* обработка карточки */
+
+    .card {
+        top: 15vw;
+        left: 35vw;
+        width: 30%;
+    }
+
+    .button_close {
+        top: -10px;
+        left: 100%;
+    }
+
+    .card_info {
+        font-size: 14px;
+    }
+
+    .last_name,
+    .fs_name {
+        font-size: 20px;
+    }
+
+    .card_img {
+        width: 125px;
+    }
+
+    .card_img .avatar {
+        width: 125px;
+        height: 125px;
+    }
+
+}

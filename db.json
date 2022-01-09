@@ -1,0 +1,114 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "last_name": "Иванова",
+      "first_name": "Мария",
+      "middle_name": "Андреевна",
+      "city": "г. Уфа",
+      "study": "УГАТУ 2 курс",
+      "avatar": "./src/avatar_1.svg",
+      "phone_number": "+7 999 345 34 33",
+      "email": "student_1@gmail.com"
+    },
+    {
+      "id": 2,
+      "last_name": "Алексеевский",
+      "first_name": "Владислав",
+      "middle_name": "Максимович",
+      "study": "КГАСУ 2 курс",
+      "city": "г. Казань",
+      "avatar": "./src/avatar_2.svg",
+      "phone_number": "+7 999 345 34 33",
+      "email": "student_2@gmail.com"
+    },
+    {
+      "id": 3,
+      "last_name": "Кон",
+      "first_name": "Владимир",
+      "middle_name": "",
+      "study": "УГАТУ 2 курс",
+      "city": "г. Уфа",
+      "avatar": "./src/avatar_3.svg",
+      "phone_number": "+7 999 345 34 33",
+      "email": "student_3@gmail.com"
+    },
+    {
+      "id": 4,
+      "last_name": "Волкова",
+      "first_name": "Анна",
+      "middle_name": "Владимировна",
+      "study": "СибГУТИ 2 курс",
+      "city": "г. Новосибирск",
+      "avatar": "./src/avatar_4.svg",
+      "phone_number": "+7 999 345 34 33",
+      "email": "student_4@gmail.com"
+    },
+    {
+      "id": 5,
+      "last_name": "Еремеев",
+      "first_name": "Александр",
+      "middle_name": "Денисович",
+      "study": "СГУПС 4 курс",
+      "city": "г. Новосибирск",
+      "avatar": "./src/avatar_5.svg",
+      "phone_number": "+7 999 345 34 33",
+      "email": "student_5@gmail.com"
+    },
+    {
+      "id": 6,
+      "last_name": "Андреева",
+      "first_name": "Вероника",
+      "middle_name": "Павловна",
+      "study": "МГУ 2 курс",
+      "city": "г. Москва",
+      "avatar": "./src/avatar_6.svg",
+      "phone_number": "+7 999 345 34 33",
+      "email": "student_6@gmail.com"
+    },
+    {
+      "id": 7,
+      "last_name": "Гришина",
+      "first_name": "Дарья",
+      "middle_name": "Сергеевна",
+      "study": "УГАТУ 3 курс",
+      "city": "г. Уфа",
+      "avatar": "./src/avatar_7.svg",
+      "phone_number": "+7 999 345 34 33",
+      "email": "student_7@gmail.com"
+    },
+    {
+      "id": 8,
+      "last_name": "Николаев",
+      "first_name": "Антон",
+      "middle_name": "Андреевич",
+      "study": "ТГУ 4 курс",
+      "city": "г. Томск",
+      "avatar": "./src/avatar_8.svg",
+      "phone_number": "+7 999 345 34 33",
+      "email": "student_8@gmail.com"
+    },
+    {
+      "id": 9,
+      "last_name": "Рассказов",
+      "first_name": "Святослав",
+      "middle_name": "Васильевич",
+      "study": "УГАТУ 2 курс",
+      "city": "г. Уфа",
+      "avatar": "./src/avatar_9.svg",
+      "phone_number": "+7 999 345 34 33",
+      "email": "student_9@gmail.com"
+    },
+    {
+      "id": 10,
+      "last_name": "Красавина",
+      "first_name": "Алия",
+      "middle_name": "Мамедовна",
+      "study": "СибГУТИ 3 курс",
+      "city": "г. Новосибирск",
+      "avatar": "./src/avatar_10.svg",
+      "phone_number": "+7 999 345 34 33",
+      "email": "student_10@gmail.com"
+    }
+  ]
+}

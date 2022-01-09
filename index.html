@@ -1,50 +1,159 @@
+<!-- Указание стандарта документа -->
 <!DOCTYPE html>
+<!-- Сам документ -->
 <html>
+    <!-- Данные документа -->
     <head>
+        <!-- Указание кодировки -->
         <meta charset="UTF-8" />
-        <meta name="keywords" content="person, public, blog, potatos_uh, Sergey Akhaimov" />
+        <!-- Указание слов, которые будут ключевыми для поиска в интернете -->
+        <meta name="keywords" content="студенты" />
+        <!-- Указание автора контента -->
         <meta name="author" content="Sergey Akhaimov" />
-        <!-- иконка для вкладки: буква P с текстурой картошки, в самбрерро-->
-        <title>My personal web-page</title>
+        <!-- Указание названия вкладки -->
+        <title>Students</title>
+        <!-- Указание параметров для отображения на мобильном устройстве (адаптация) -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./styles/styles.css" />
+        <!-- Указание файла со стилями -->
+        <link rel="stylesheet" href="./styles/index.css" />
+        <script src="./script/index.js" defer></script>
     </head>
+    <!-- Тело документа -->
     <body>
-        <header>
-            <h1> Добро пожаловать на мою страничку! </h1>
+        <!-- Оболочка для контента внутри тела-->
+        <div class="container">
+            <header class="header">
+                    <!-- Ссылка по нажатию на картинку -->
+                    <a href="#" class="header_icon" ></a>
+                    <h1 class="header_title"></h1>
+            </header>
+            <section class="card_container"></section>
+            <!-- контейнер для списка студентов -->
+            <section class="students_container"></section>
+            <template id="student_template">
+                <article class="student">
+                    <div class="avatar_description">
+                        <img src="" alt="" class="avatar">
+                        <div class="student_description">
+                            <p class="student_name">
+                            </p>
+                            <section class="study_info">
+                                <span class="study"></span>
+                                <span class="city"></span>    
+                            </section>
+                        </div>
+                    </div>
+                    <div class="press_area">
+                        <a href="#" class="button_edit"></a>
+                        <a href="#" class="button_delete"></a>
+                    </div> 
+                </article>
+            </template>
             
-        </header>
-        <main>
-            <!-- Аватарка с подписью-->
-            <section>
-                <figure class="avatar">
-                    <img src="src/avatar.jpg" alt="Многие пугались этой фотографии, поэтому браузер её заблокировал" height="450"/>
-                    <figcaption>Теперь вы знаете, как я выгляжу</figcaption>
-                </figure>
-            </section>
-            <section>
-                <h2> Обо мне </h2>
-                <p> Текст </p>
-            </section>
-            <section>
-                <h2> Почему Вы видите эту страничку? </h2>
-                <p> Вероятнее всего Вы знаете о компании Тензор, и потому оказались здесь. 
-                    Вы студент, или преподаватель, или сотрудник компании. 
-                    В любом случае можете посмотреть 
-                    <a href="https://github.com/AkhSerg/Development-in-none-book-conditions" target="_blank"> мой код</a> 
-                    к заданию по курсу. 
-                </p>
-            </section>
-        </main>
-        <footer>
-            <h4> Мои соцсети! </h4>
-            <ul>
-                <li><a href="https://www.instagram.com/potatos_uh" target="_blank">Instagram</a></li>
-                <li><a href="https://vk.com/potatos_uh" target="_blank">VK</a></li>
-                <li><a href="https://www.twitter.com/potatos_uh" target="_blank">Twitter</a></li> 
-                <a href="https://tensor.ru/" target="_blank">Tensor</a>
-                School
-            </ul>
-        </footer>
+            <template id="card_template" >
+                <div class="card">
+                    <a href="#" class="button_close">&times;</a>
+                    <section class="card_info">
+                        <p class="student_name">
+                            <span class="last_name"></span>
+                            <span class="fs_name"></span>
+                        </p>
+                        <div class="city_info">
+                            <img src="./src/city.svg" alt="city" class="city_img">
+                            <p class="city"></p>
+                        </div>
+                        <div class="study_info">
+                            <img src="./src/study.svg" alt="" class="study_img">
+                            <p class="study"></p>
+                        </div>
+                        <div class="phone_number_info">
+                            <img src="./src/phone_number.svg" class="phone_img" >
+                            <p class="phone_number"></p>
+                        </div>
+                        <div class="email_info">
+                            <img src="./src/email.svg" alt="" class="email_img">
+                            <p class="email"></p>
+                        </div>
+                        <div class="card_img">
+                            <img src="" alt="" class="avatar">
+                            <div class="social_media">
+                                <img src="./src/vk.svg" alt="" class="vk">
+                                <img src="./src/fb.svg" alt="" class="fb">
+                                <img src="./src/wa.svg" alt="" class="wa">
+                                <img src="./src/tlg.svg" alt="" class="tlg">
+                            </div>    
+                        </div>
+                    </section>
+                </div>
+            </template>
+            
+            <div id="student_popup" class="overlay">
+                <div class="popup">
+                   <h2>Введите информацию о студенте</h2>
+                   <a class="popup__close" href="#">&times;</a>
+                   <form class="student-form">
+                      <div class="form-group">
+                         <label class="form-group__label" for="last_name">Фамилия: </label>
+                         <div class="form-group__container">
+                            <input name="last-name" class="form-group__input" type="text" minlength="2" required />
+                            <span class="form-group__input-error"></span>
+                         </div>
+                      </div>
+                      <div class="form-group">
+                         <label class="form-group__label" for="first_name">Имя: </label>
+                         <div class="form-group__container">
+                            <input name="first-name" class="form-group__input" type="text" minlength="2" required />
+                            <span class="form-group__input-error"></span>
+                         </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-group__label" for="middle_name">Отчество: </label>
+                        <div class="form-group__container">
+                           <input name="middle-name" class="form-group__input" type="text" minlength="2" />
+                           <span class="form-group__input-error"></span>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="form-group__label" for="city">Город: </label>
+                        <div class="form-group__container">
+                           <input name="city" class="form-group__input" type="text" minlength="2" required />
+                           <span class="form-group__input-error"></span>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="form-group__label" for="study">Организация Курс: </label>
+                        <div class="form-group__container">
+                           <input name="study" class="form-group__input" type="text" minlength="2" required />
+                           <span class="form-group__input-error"></span>
+                        </div>
+                     </div>
+                      <div class="form-group">
+                         <label class="form-group__label" for="url">URL фото студента: </label>
+                         <div class="form-group__container">
+                            <input name="url" class="form-group__input" type="text" />
+                            <span class="form-group__input-error"></span>
+                         </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-group__label" for="phone_number">Номер телефона: </label>
+                        <div class="form-group__container">
+                           <input name="phone_number" class="form-group__input" type="text" minlength="10" />
+                           <span class="form-group__input-error"></span>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="form-group__label" for="email">Электронный адрес: </label>
+                        <div class="form-group__container">
+                           <input name="email" class="form-group__input" type="text" minlength="2" />
+                           <span class="form-group__input-error"></span>
+                        </div>
+                     </div>                      
+                      <div class="form-group">
+                         <button class="my-form__submit" type="submit">Отправить</button>
+                      </div>
+                   </form>
+                </div>
+             </div>
+        </div>
     </body>
 </html>
