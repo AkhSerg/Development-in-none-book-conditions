@@ -25,7 +25,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET", "PUT", "POST", "DELETE"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
@@ -69,6 +69,7 @@ def update(id: int, payload: Student):
             email = %s::text
         where id = %s::int
     """
+    print('put: ', sql)
     db_helper.execute_query(
         sql,
         payload.last_name,

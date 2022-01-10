@@ -1,5 +1,3 @@
-
-
 class Api {
     constructor(url, headers) {
         this._url = url;
@@ -20,9 +18,9 @@ class Api {
         return fetch(`${this._url}/${id}`, {
             method: 'DELETE',
             headers: this._headers
-    }).then((res) => {
-        return this._processResult(res, 'Ошибка при удалении данных');
-    })
+        }).then((res) => {
+            return this._processResult(res, 'Ошибка при удалении данных');
+        })
     }
 
     _createItem(data) {
@@ -45,7 +43,6 @@ class Api {
         });
     }
   
-
     // функция обработки результата (ошибки)
     _processResult(res, errorText) {
         if (res.ok) {
@@ -89,7 +86,8 @@ class Form {
  const $studentButton = document.querySelector('.header_icon');
  const studentApi = new Api(
      'http://localhost:3000/students', {
-     'Content-Type': 'application/json'
+     'Content-Type': 'application/json',
+     'Access-Control-Allow-Methods': '*'
  })
  
  const studentForm = new Form(document.querySelector('.student-form'));
@@ -184,45 +182,47 @@ const renderItem = (item) => {
 
     $buttonEdit.addEventListener('click', (event)=>{
         showPopup();
-    })
-
-    //     // инициализируем форму 
-    studentForm.init((event) => {
-        event.preventDefault();
-        // считываем данные на фронте из формы
-        const data = {
-            id: item.id,
-            last_name: event.target.elements[0].value,
-            first_name: event.target.elements[1].value,
-            middle_name: event.target.elements[2].value,
-            city: event.target.elements[3].value,
-            study: event.target.elements[4].value,
-            avatar: event.target.elements[5].value,
-            phone_number: event.target.elements[6].value,
-            email: event.target.elements[7].value
-        }
-        // обращаемся к серверу через API, чтобы изменить данные в базе
-        studentApi._updateItem(item.id, data).then(() => {
-            studentApi._getItems().then((data) => renderList(data));
-            hidePopup();
-        });   
-    }, {
-        last_name: item.last_name,
-        first_name: item.first_name,
-        middle_name: item.middle_name,
-        city: item.city,
-        study: item.study,
-        avatar: item.avatar,
-        phone_number: item.phone_number,
-        email: item.email
+        //     // инициализируем форму 
+        studentForm.init((event) => 
+        // первый параметр данные, которые считываем из формы
+        {
+            event.preventDefault();
+            // считываем данные на фронте из формы
+            const data = {
+                id: item.id,
+                last_name: event.target.elements[0].value,
+                first_name: event.target.elements[1].value,
+                middle_name: event.target.elements[2].value,
+                city: event.target.elements[3].value,
+                study: event.target.elements[4].value,
+                avatar: event.target.elements[5].value,
+                phone_number: event.target.elements[6].value,
+                email: event.target.elements[7].value
+            }
+            console.log(data)
+            // обращаемся к серверу через API, чтобы изменить данные в базе
+            studentApi._updateItem(item.id, data).then(() => {
+                studentApi._getItems().then((data) => renderList(data));
+                hidePopup();
+            });   
+        }, // второй параметр для отображения данных в форме, которые будем менять
+        {
+            last_name: item.last_name,
+            first_name: item.first_name,
+            middle_name: item.middle_name,
+            city: item.city,
+            study: item.study,
+            avatar: item.avatar,
+            phone_number: item.phone_number,
+            email: item.email
         });
+    })
 
     // контекстное меню на студента
     $student.addEventListener('contextmenu', (event) => {
         event.preventDefault();
         renderCard(item);
     });
-
 }
 
 // генерация списка данных с проверкой на ошибку
@@ -234,14 +234,14 @@ $studentButton.addEventListener('click', () => {
     studentForm.init((event) => {
         event.preventDefault();
         const data = {
-        last_name: event.target.elements[0].value,
-        first_name: event.target.elements[1].value,
-        middle_name: event.target.elements[2].value,
-        city: event.target.elements[3].value,
-        study: event.target.elements[4].value,
-        avatar: event.target.elements[5].value,
-        phone_number: event.target.elements[6].value,
-        email: event.target.elements[7].value
+            last_name: event.target.elements[0].value,
+            first_name: event.target.elements[1].value,
+            middle_name: event.target.elements[2].value,
+            city: event.target.elements[3].value,
+            study: event.target.elements[4].value,
+            avatar: event.target.elements[5].value,
+            phone_number: event.target.elements[6].value,
+            email: event.target.elements[7].value
         };
         console.log(data)
         studentApi._createItem(data).then(() => {
@@ -250,117 +250,3 @@ $studentButton.addEventListener('click', () => {
         });
     });
 })
-
-
-
-
-
-// {
-//     "id": 1,
-//     "last_name": "Иванова",
-//     "first_name": "Мария",
-//     "middle_name": "Андреевна",
-//     "study": "УГАТУ 2 курс",
-//     "city": "г.Уфа",
-//     "avatar": "./src/avatar_1.svg",
-//     "phone_number": "+7 999 345 34 33",
-//     "email": "student_1@gmail.com"
-//   },
-// {
-//     "id": 2,
-//     "last_name": "Алексеев",
-//     "first_name": "Владислав",
-//     "middle_name": "Владислав",
-//     "study": "КГАСУ 2 курс",
-//     "city": "г.Казань",
-//     "avatar": "./src/avatar_2.svg",
-//     "phone_number": "+7 999 345 34 33",
-//     "email": "student_2@gmail.com"
-//   },
-//   {
-//     "id": 3,
-//     "last_name": "Кон",
-//     "first_name": "Владимир",
-//     "middle_name": "",
-//     "study": "УГАТУ 2 курс",
-//     "city": "г.Уфа",
-//     "avatar": "./src/avatar_3.svg",
-//     "phone_number": "+7 999 345 34 33",
-//     "email": "student_3@gmail.com"
-//   },
-//   {
-//     "id": 4,
-//     "last_name": "Волкова",
-//     "first_name": "Анна",
-//     "middle_name": "Владимировна",
-//     "study": "СибГУТИ 2 курс",
-//     "city": "г.Новосибирск",
-//     "avatar": "./src/avatar_4.svg",
-//     "phone_number": "+7 999 345 34 33",
-//     "email": "student_4@gmail.com"
-//   },
-//   {
-//     "id": 5,
-//     "last_name": "Еремеев",
-//     "first_name": "Александр",
-//     "middle_name": "Денисович",
-//     "study": "СГУПС 4 курс",
-//     "city": "г.Новосибирск",
-//     "avatar": "./src/avatar_5.svg",
-//     "phone_number": "+7 999 345 34 33",
-//     "email": "student_5@gmail.com"
-//   },
-//   {
-//     "id": 6,
-//     "last_name": "Андреева",
-//     "first_name": "Вероника",
-//     "middle_name": "Павловна",
-//     "study": "МГУ 2 курс",
-//     "city": "г.Москва",
-//     "avatar": "./src/avatar_6.svg",
-//     "phone_number": "+7 999 345 34 33",
-//     "email": "student_6@gmail.com"
-//   },
-//   {
-//     "id": 7,
-//     "last_name": "Гришина",
-//     "first_name": "Дарья",
-//     "middle_name": "Сергеевна",
-//     "study": "УГАТУ 3 курс",
-//     "city": "г.Уфа",
-//     "avatar": "./src/avatar_7.svg",
-//     "phone_number": "+7 999 345 34 33",
-//     "email": "student_7@gmail.com"
-//   },
-//   {
-//     "id": 8,
-//     "last_name": "Николаев",
-//     "first_name": "Антон",
-//     "middle_name": "Андреевич",
-//     "study": "ТГУ 4 курс",
-//     "city": "г.Томск",
-//     "avatar": "./src/avatar_8.svg",
-//     "phone_number": "+7 999 345 34 33",
-//     "email": "student_8@gmail.com"
-//   },
-//   {
-//     "id": 9,
-//     "last_name": "Рассказов",
-//     "first_name": "Святослав",
-//     "middle_name": "Васильевич",
-//     "study": "УГАТУ 2 курс",
-//     "city": "г.Уфа",
-//     "avatar": "./src/avatar_9.svg",
-//     "phone_number": "+7 999 345 34 33",
-//     "email": "student_9@gmail.com"
-//   },
-//   {
-//     "id": 10,
-//     "last_name": "Красавина",
-//     "first_name": "Алия",
-//     "middle_name": "Мамедовна",
-//     "study": "СибГУТИ 3 курс",
-//     "city": "г.Новосибирск",
-//     "avatar": "./src/avatar_10.svg",
-//     "phone_number": "+7 999 345 34 33",
-//     "email": "student_10@gmail.com"

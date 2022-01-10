@@ -1,5 +1,5 @@
 from psycopg2 import connect, OperationalError, ProgrammingError
-from psycopg2.extras import RealDictCursor, RealDictRow
+from psycopg2.extras import RealDictCursor
 from typing import List
 import const
 
@@ -27,7 +27,6 @@ def execute_query(query: str, *args) -> List[dict]:
     """
     Функция для выполненния запросов к базе данных
     """
-    print(query, args)
     con = create_connection()
     if not con:
         return None
@@ -38,7 +37,7 @@ def execute_query(query: str, *args) -> List[dict]:
         cursor.execute(query, args)
         # получаем данные из запроса: fetchall() - список кортежей; fetchone() - первый кортеж
         result = cursor.fetchall()
-    # # исключение при поптыке взять данные
+    # исключение при поптыке взять данные
     except ProgrammingError as e:
         result = None
         print(e)
@@ -48,13 +47,3 @@ def execute_query(query: str, *args) -> List[dict]:
     finally:
         con.close()
     return result
-
-# first_name = 'Мария 222'
-# sql = """
-#     select * from student
-# """
-# update student set first_name = %s
-# res = execute_query(sql)
-
-# res = execute_query(sql)
-# print(res)
