@@ -7,7 +7,7 @@
 		"middle_name" : "Андреевна",
 		"city" : "г. Уфа",
 		"study" : "УГАТУ 2 курс",
-		"avatar" : "..\/src\/avatar_1.svg",
+		"avatar" : ".\/src\/avatar_1.svg",
 		"phone_number" : "+7 999 345 34 33",
 		"email" : "student_1@gmail.com"
 	},
@@ -18,7 +18,7 @@
 		"middle_name" : "Максимович",
 		"city" : "г. Казань",
 		"study" : "КГАСУ 2 курс",
-		"avatar" : "..\/src\/avatar_2.svg",
+		"avatar" : ".\/src\/avatar_2.svg",
 		"phone_number" : "+7 999 345 34 33",
 		"email" : "student_2@gmail.com"
 	},
@@ -29,7 +29,7 @@
 		"middle_name" : null,
 		"city" : "г. Уфа",
 		"study" : "УГАТУ 2 курс",
-		"avatar" : "..\/src\/avatar_3.svg",
+		"avatar" : ".\/src\/avatar_3.svg",
 		"phone_number" : "+7 999 345 34 33",
 		"email" : "student_3@gmail.com"
 	},
@@ -89,7 +89,7 @@
 		"email" : "student_8@gmail.com"
 	},
 	{
-		"id" : 10,
+		"id" : 9,
 		"last_name" : "Красавина",
 		"first_name" : "Алия",
 		"middle_name" : "Мамедовна",
@@ -100,7 +100,7 @@
 		"email" : "student_10@gmail.com"
 	},
 	{
-		"id" : 11,
+		"id" : 10,
 		"last_name" : "Ахаимов",
 		"first_name" : "Сергей",
 		"middle_name" : "Владиславович",
