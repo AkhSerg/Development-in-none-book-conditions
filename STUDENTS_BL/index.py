@@ -23,8 +23,8 @@ class Student(BaseModel):
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_credentials=True,
     allow_origins=["*"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -68,7 +68,6 @@ def update(id: int, payload: Student):
             phone_number = %s::text,
             email = %s::text
         where id = %s::int
-        
     """
     db_helper.execute_query(
         sql,
@@ -113,7 +112,7 @@ def delete(id: int):
     sql = """
         delete from tenzor_students where id = %s::int
     """
-    db_helper.execute_query(sql)
+    db_helper.execute_query(sql, id)
 
 
 if __name__ == '__main__':

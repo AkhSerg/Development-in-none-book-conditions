@@ -1,3 +1,5 @@
+
+
 class Api {
     constructor(url, headers) {
         this._url = url;
@@ -63,10 +65,17 @@ class Form {
        this.closeForm();
        this._submitHandler = submitHandler;
        this._element.addEventListener('submit', this._submitHandler);
- 
+        
+    //    console.log(values)
        if (values) {
           Object.keys(values).forEach((name) => {
-             this._element.querySelector(`[name=${name}]`).value = values[name];
+            console.log(name)
+            // console.log(values)
+            // console.log(this._element)
+            console.log(document.querySelector('.student-form').querySelector(`[name="last_name"]`))
+            this._element.querySelector(`[name="${name}"]`).value = values[name];//.value;=${name}
+            // console.log($the_value)
+            //  = values[name];
           });
        }
     }
@@ -156,8 +165,6 @@ const renderItem = (item) => {
     const $student = $studentItem.querySelector('.student');
     const $buttonEdit = $studentItem.querySelector('.button_edit')
 
-    const $buttonSubmit = document.querySelector('.my-form__submit');
-
     $studentItem.querySelector('.student_name').textContent = (item.first_name + " " + item.last_name);
     $studentItem.querySelector('.city').textContent = item.city;
     $studentItem.querySelector('.study').textContent = item.study;
@@ -187,39 +194,36 @@ const renderItem = (item) => {
         showPopup();
     })
 
-    $buttonSubmit.addEventListener('submit', (event) => {
-        // инициализируем форму 
-        studentForm.init((event) => {
-            event.preventDefault();
-            // считываем данные на фронте из формы
-            const data = {
-                id: item.id,
-                last_name: event.target.elements[0].value,
-                first_name: event.target.elements[1].value,
-                middle_name: event.target.elements[2].value,
-                city: event.target.elements[3].value,
-                study: event.target.elements[4].value,
-                avatar: event.target.elements[5].value,
-                phone_number: event.target.elements[6].value,
-                email: event.target.elements[7].value
-            }
-            console.log(data)
-            // обращаемся к серверу через API, чтобы изменить данные в базе
-            studentApi._updateItem(item.id, data).then(() => {
-                studentApi._getItems().then((data) => renderList(data));
-                hidePopup();
-            });   
-        }, {
-            last_name: item.last_name,
-            first_name: item.first_name,
-            middle_name: item.middle_name,
-            city: item.city,
-            study: item.study,
-            avatar: item.avatar,
-            phone_number: item.phone_number,
-            email: item.email
-         });
-    });
+    //     // инициализируем форму 
+    studentForm.init((event) => {
+        event.preventDefault();
+        // считываем данные на фронте из формы
+        const data = {
+            id: item.id,
+            last_name: event.target.elements[0].value,
+            first_name: event.target.elements[1].value,
+            middle_name: event.target.elements[2].value,
+            city: event.target.elements[3].value,
+            study: event.target.elements[4].value,
+            avatar: event.target.elements[5].value,
+            phone_number: event.target.elements[6].value,
+            email: event.target.elements[7].value
+        }
+        // обращаемся к серверу через API, чтобы изменить данные в базе
+        studentApi._updateItem(item.id, data).then(() => {
+            studentApi._getItems().then((data) => renderList(data));
+            hidePopup();
+        });   
+    }, {
+        last_name: item.last_name,
+        first_name: item.first_name,
+        middle_name: item.middle_name,
+        city: item.city,
+        study: item.study,
+        avatar: item.avatar,
+        phone_number: item.phone_number,
+        email: item.email
+        });
 
     // контекстное меню на студента
     $student.addEventListener('contextmenu', (event) => {
@@ -235,29 +239,26 @@ studentApi._getItems().then((data) => renderList(data));
 
 $studentButton.addEventListener('click', () => {
     showPopup();
-})
-
-const $buttonSubmit = document.querySelector('.my-form__submit');
-$buttonSubmit.addEventListener('submit', (event)=>{
     studentForm.init((event) => {
-       event.preventDefault();
-       const data = {
+        event.preventDefault();
+        const data = {
         last_name: event.target.elements[0].value,
         first_name: event.target.elements[1].value,
         middle_name: event.target.elements[2].value,
-        study: event.target.elements[4].value,
         city: event.target.elements[3].value,
+        study: event.target.elements[4].value,
         avatar: event.target.elements[5].value,
         phone_number: event.target.elements[6].value,
         email: event.target.elements[7].value
-       };
- 
-       studentApi._createItem(data).then(() => {
-          studentApi._getItems().then((data) => renderList(data));
-          hidePopup();
-       });
+        };
+    
+        studentApi._createItem(data).then(() => {
+            studentApi._getItems().then((data) => renderList(data));
+            hidePopup();
+        });
     });
- });
+})
+
 
 
 

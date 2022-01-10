@@ -27,6 +27,7 @@ def execute_query(query: str, *args) -> List[dict]:
     """
     Функция для выполненния запросов к базе данных
     """
+    print(query, args)
     con = create_connection()
     if not con:
         return None
@@ -34,14 +35,13 @@ def execute_query(query: str, *args) -> List[dict]:
     cursor = con.cursor(cursor_factory=RealDictCursor)
     try:
         # выполняем запрос
-        cursor.execute(query)
+        cursor.execute(query, args)
         # получаем данные из запроса: fetchall() - список кортежей; fetchone() - первый кортеж
         result = cursor.fetchall()
-        # result = RealDictRow(dict(result[0]))
-        print(result[1])
     # # исключение при поптыке взять данные
-    except ProgrammingError:
+    except ProgrammingError as e:
         result = None
+        print(e)
     except OperationalError as e:
         print(f"Error: {e}")
         result = None
