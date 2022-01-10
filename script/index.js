@@ -66,16 +66,9 @@ class Form {
        this._submitHandler = submitHandler;
        this._element.addEventListener('submit', this._submitHandler);
         
-    //    console.log(values)
        if (values) {
           Object.keys(values).forEach((name) => {
-            console.log(name)
-            // console.log(values)
-            // console.log(this._element)
-            console.log(document.querySelector('.student-form').querySelector(`[name="last_name"]`))
-            this._element.querySelector(`[name="${name}"]`).value = values[name];//.value;=${name}
-            // console.log($the_value)
-            //  = values[name];
+            this._element.querySelector(`[name="${name}"]`).value = values[name];
           });
        }
     }
@@ -118,7 +111,6 @@ $popupCloseButton.addEventListener('click', (event) => {
 // функция для генерации (пересоздания) списка данных, чтобы в дальнейшем отправить их на сервер
 const renderList = (data) => {
     $studentsContainer.innerHTML = '';
-    console.log(data);
     data.forEach(renderItem);
 }
 
@@ -251,7 +243,7 @@ $studentButton.addEventListener('click', () => {
         phone_number: event.target.elements[6].value,
         email: event.target.elements[7].value
         };
-    
+        console.log(data)
         studentApi._createItem(data).then(() => {
             studentApi._getItems().then((data) => renderList(data));
             hidePopup();

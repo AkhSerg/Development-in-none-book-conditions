@@ -230,13 +230,8 @@ header {
     margin: 0;
 }
 
-.fa-phone {
-    display: block;
+.phone_img {
     padding-right: 8px;
-    text-decoration: none;
-    background: url(../src/phone_number.svg);
-    /* color:rgb(0, 0, 0); */
-    /* background-color: #fff; */
 }
 
 .email_info {
